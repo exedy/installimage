@@ -32,7 +32,7 @@ export COMPANY_PUBKEYS=(
   "$COMPANY_PUBKEY"
   "$SCRIPTPATH/gpg/public-key-2018.asc"
 )
-export COMPANY="Hetzner Online GmbH"
+export COMPANY="Shatau Corp"
 export C_SHORT="hetzner"
 export LOCKFILE='/run/lock/installimage'
 export SYSTEMD_NSPAWN_TMP_DIR="$FOLD/systemd_nspawn"
@@ -41,9 +41,9 @@ export MODULES="virtio_pci virtio_blk via82cxxx sata_via sata_sil sata_nv sd_mod
 export STATSSERVER="213.133.99.103"
 export HDDMINSIZE="7000000"
 
-export NAMESERVER=("213.133.98.98" "213.133.99.99" "213.133.100.100")
-export DNSRESOLVER_V6=("2a01:4f8:0:1::add:9898" "2a01:4f8:0:1::add:9999" "2a01:4f8:0:1::add:1010")
-export NTPSERVERS=("ntp1.hetzner.de" "ntp2.hetzner.com" "ntp3.hetzner.net")
+export NAMESERVER=("10.200.203.11" "10.200.203.12" "10.200.203.11" "192.168.0.235")
+# export DNSRESOLVER_V6=("2a01:4f8:0:1::add:9898" "2a01:4f8:0:1::add:9999" "2a01:4f8:0:1::add:1010")
+export NTPSERVERS=("10.200.203.11" "10.200.203.12" "10.200.203.11" "192.168.0.235")
 export AUTH_DNS1="ns1.first-ns.de"
 export AUTH_DNS2="robotns2.second-ns.de"
 export AUTH_DNS3="robotns3.second-ns.com"

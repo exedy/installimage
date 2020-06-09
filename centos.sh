@@ -390,17 +390,17 @@ run_os_specific_functions() {
 
   execute_chroot_command "chkconfig iptables off"
   execute_chroot_command "chkconfig ip6tables off"
-  is_plesk_install || execute_chroot_command "chkconfig postfix off"
+  # is_plesk_install || execute_chroot_command "chkconfig postfix off"
 
   #
   # setup env in cpanel image
   #
-  debug "# Testing and setup of cpanel image"
-  if [ -f "$FOLD/hdd/etc/wwwacct.conf" ] && [ -f "$FOLD/hdd/etc/cpupdate.conf" ] ; then
-    grep -q -i cpanel <<< "$IMAGE_FILE" && {
-      setup_cpanel || return 1
-    }
-  fi
+  # debug "# Testing and setup of cpanel image"
+  # if [ -f "$FOLD/hdd/etc/wwwacct.conf" ] && [ -f "$FOLD/hdd/etc/cpupdate.conf" ] ; then
+  #   grep -q -i cpanel <<< "$IMAGE_FILE" && {
+  #     setup_cpanel || return 1
+  #   }
+  # fi
 
   # selinux autorelabel if enabled
   egrep -q "SELINUX=enforcing" "$FOLD/hdd/etc/sysconfig/selinux" &&

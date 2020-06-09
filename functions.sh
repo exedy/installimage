@@ -1498,7 +1498,7 @@ unmount_all() {
   unmount_errors=0
 
   while read line ; do
-    device="$(echo "$line" | grep -v "^/dev/loop" | grep -v "^/dev/root" | grep "^/" | grep -v '^//.* cifs .*' | awk '{ print $1 }')"
+    device="$(echo "$line" |  grep -v "^/run/live/medium" | grep -v "^/dev/loop" | grep -v "/dev/sr0" | grep -v "^/cow" | grep -v "^/dev/cdrom" | grep -v "^/dev/root" | grep "^/" | awk '{ print $1 }')"
     if [ "$device" ] ; then
       unmount_output="$unmount_output\n$(umount $device 2>&1)"; EXITCODE=$?
       unmount_errors=$[$unmount_errors + $EXITCODE]
@@ -2438,7 +2438,7 @@ gather_network_information_old() {
 # gather_network_information "$ETH"
 gather_network_information() {
   # requires ipcalc from centos/rhel
-  HWADDR=$(ip link show dev $ETHDEV | grep 'link/ether' |  awk '{print $2}' | tr [:upper:] [:lower:])
+  HWADDR=$(ip link show dev $ETHDEV | grep 'link/ether' |  awk '{print $2}' | tr '[:upper:]' '[:lower:]')
   INETADDR=$(ip addr show dev $ETHDEV | grep "inet\ " | awk '{print $2}' )
 #  IPADDR=$(ip addr show dev $ETHDEV | grep "inet\ " | awk '{print $2}' | cut -d"/" -f1)
   # check for a RFC6598 address, and don't set the v4 vars if we have one

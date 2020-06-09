@@ -7,6 +7,9 @@
 # (c) 2007-2017, Hetzner Online AG
 #
 
+#sudo apt-get update && apt-get install -y systemd-container mcedit hdparm dialog net-tools ipcalc curl
+echo "Please, change root password."
+passwd root
 
 # simple params - restart with other params
 case $1 in

@@ -356,7 +356,7 @@ copy_mtab "NIL"
 status_busy_nostep "  Setting hostname"
 debug "# Setting hostname"
 #set_hostname "$NEWHOSTNAME" || status_failed
-set_hostname "$NEWHOSTNAME" "$IPADDR" "$IP6ADDR" || status_failed
+#set_hostname "$NEWHOSTNAME" "$IPADDR" "$IP6ADDR" || status_failed
 status_done
 
 if [[ "$GENERATE_NEW_SSH_HOST_KEYS" == no ]]; then
